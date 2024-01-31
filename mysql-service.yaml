@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: mysql
+    environment: production
+  name: mysql
+spec:
+  ports:
+    - nodePort: 30538
+      port: 3306
+      protocol: TCP
+      targetPort: 3306
+  selector:
+    app: mysql
+    environment: production
+  type: NodePort

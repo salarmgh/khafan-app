@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: khafan-app
+  labels:
+    environment: production
+    app: khafan-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: khafan-app
+      environment: production
+  template:
+    metadata:
+      labels:
+        app: khafan-app
+        environment: production
+    spec:
+      containers:
+        - name: app
+          image: khafan_app:v1
+          env:
+            - name: MYSQL_DATABASE_HOST
+              value: mysql
+        - name: nginx
+          image: khafan_app:nginx

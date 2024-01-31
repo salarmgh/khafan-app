@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: khafan-app
+  labels:
+    environment: production
+    app: khafan-app
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: khafan-app.digikala
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: khafan-app
+                port:
+                  number: 80
