@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  labels:
+    environment: production
+    app: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+      environment: production
+  template:
+    metadata:
+      labels:
+        app: mysql
+        environment: production
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:8.3.0
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: root
+            - name: MYSQL_DATABASE
+              value: khafan_app
+        # - name: nginx
+        #   image: khafan_app:nginx

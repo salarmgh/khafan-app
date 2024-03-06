@@ -10,7 +10,7 @@ spec:
     - nodePort: 30537
       port: 80
       protocol: TCP
-      targetPort: 80
+      targetPort: 5000
   selector:
     app: khafan-app
     environment: production

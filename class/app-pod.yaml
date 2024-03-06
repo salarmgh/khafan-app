@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: khafan-app
+  labels:
+    role: app
+    environment: production
+spec:
+  containers:
+    - name: app
+      image: khafan_app:v1
+      ports:
+        - name: http
+          containerPort: 5000
+          protocol: TCP
